@@ -4,21 +4,21 @@ Queues calls to async functions to execute them serial
 ```
 var que = require('que');
 
-function asyncLogger(n,cb) {
+function asyncLog(n,cb) {
 	var timeout = (n % 2 === 0 ? 1000 : 3000);
 	setTimeout(function(){
 		cb(null,n);
 	}, timeout);
 }
 
-var logger = qu(asyncLogger);
+var log = que(asyncLog);
 
-logger(1,print)
-logger(2,print)
-logger(3,print)
-logger(4,print)
-logger(5,print)
-logger(6,print)
+log(1,print)
+log(2,print)
+log(3,print)
+log(4,print)
+log(5,print)
+log(6,print)
 
 function print(err,num) {
 	console.log(num);
